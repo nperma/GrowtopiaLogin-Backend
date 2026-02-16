@@ -80,11 +80,7 @@ app.all('/player/login/dashboard', async (req: Request, res: Response) => {
   const tDataBase64 = Buffer.from(JSON.stringify(tData)).toString('base64');
 
   // @note read dashboard template and replace placeholder
-  const templatePath = path.join(
-    process.cwd(),
-    'template',
-    'dashboard.html',
-  );
+  const templatePath = path.join(process.cwd(), 'template', 'dashboard.html');
 
   const templateContent = fs.readFileSync(templatePath, 'utf-8');
   const htmlContent = templateContent.replace('{{ data }}', tDataBase64);
